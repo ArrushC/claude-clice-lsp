@@ -1,0 +1,44 @@
+{
+  "name": "clice-lsp",
+  "description": "C/C++ language server (clice) for code intelligence",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arrush",
+    "url": "https://github.com/ArrushC"
+  },
+  "homepage": "https://github.com/ArrushC/clice-lsp#readme",
+  "repository": "https://github.com/ArrushC/clice-lsp",
+  "license": "MIT",
+  "keywords": [
+    "lsp",
+    "language-server",
+    "clice",
+    "c",
+    "cpp",
+    "c++",
+    "cpp-modules",
+    "code-intelligence"
+  ],
+  "lspServers": {
+    "clice": {
+      "command": "clice",
+      "args": [
+        "serve"
+      ],
+      "extensionToLanguage": {
+        ".c": "c",
+        ".h": "c",
+        ".cpp": "cpp",
+        ".cc": "cpp",
+        ".cxx": "cpp",
+        ".hpp": "cpp",
+        ".hxx": "cpp",
+        ".C": "cpp",
+        ".H": "cpp",
+        ".cppm": "cpp",
+        ".ixx": "cpp",
+        ".mpp": "cpp"
+      }
+    }
+  }
+}

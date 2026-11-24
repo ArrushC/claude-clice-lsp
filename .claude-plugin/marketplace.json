@@ -1,0 +1,16 @@
+{
+  "name": "clice-lsp",
+  "description": "clice C/C++ language server plugin for Claude Code",
+  "owner": {
+    "name": "Arrush",
+    "url": "https://github.com/ArrushC"
+  },
+  "plugins": [
+    {
+      "name": "clice-lsp",
+      "source": "./",
+      "description": "C/C++ language server (clice) for code intelligence",
+      "category": "development"
+    }
+  ]
+}
