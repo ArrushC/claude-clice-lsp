@@ -6,7 +6,21 @@ This plugin only tells Claude Code how to launch clice (`clice serve`, over stdi
 
 ## Supported Extensions
 
-`.c`, `.h`, `.cpp`, `.cc`, `.cxx`, `.hpp`, `.hxx`, `.C`, `.H`, and the C++20 module extensions `.cppm`, `.ixx`, `.mpp`
+Every extension clice treats as C-family source, matching the Clang driver's table plus clice's own additions:
+
+| Kind | Extensions |
+|---|---|
+| C | `.c`, `.h` |
+| C++ sources | `.cpp`, `.CPP`, `.cc`, `.CC`, `.cxx`, `.CXX`, `.c++`, `.C++`, `.cp`, `.C` |
+| C++ headers | `.hpp`, `.hxx`, `.hh`, `.H` |
+| C++20 modules | `.cppm`, `.ccm`, `.cxxm`, `.c++m`, `.ixx`, `.mxx`, `.mpp` |
+| Header fragments | `.inl`, `.ipp`, `.tpp`, `.tcc`, `.txx`, `.inc`, `.def` |
+| Objective-C / C++ | `.m`, `.mm`, `.M` |
+| CUDA | `.cu`, `.cuh` |
+| HIP | `.hip` |
+| OpenCL | `.cl`, `.clcpp` |
+
+Header fragments compile in the context of a source file that includes them. Clang's preprocessed-output extensions (`.i`, `.ii`, `.mi`, `.mii`, `.cli`, `.clii`, `.cui`, `.hipi`, `.iim`, `.iih`) are left out, as they are compiler output rather than files you edit.
 
 ## Why clice instead of clangd?
 
@@ -73,11 +87,11 @@ Project configuration is optional and goes in `clice.toml` in the project root (
 compile_commands = ["out/release"]
 ```
 
-See the [configuration guide](https://docs.clice.io/clice/guide/config-guide). clice keeps its cache, index and logs in `.clice/` in the project, which you will probably want in `.gitignore`.
+See the [configuration guide](https://docs.clice.io/clice/guide/config-guide). clice keeps its cache, index and logs in `.clice/` in the project. It writes its own `.gitignore` there, so the directory stays out of version control without an entry in yours (a `.clice/config.toml` stays visible to Git).
 
 ## Do not enable alongside clangd-lsp
 
-`clangd-lsp` and `clice-lsp` both claim the same file extensions. Enable only one of them for a project, otherwise two servers compete for the same files. Disable the other with `/plugin`, or:
+`clangd-lsp` and `clice-lsp` both claim the common C and C++ extensions (`.c`, `.h`, `.cpp`, `.cc`, `.cxx`, `.hpp`, `.hxx`, `.C`, `.H`). Enable only one of them for a project, otherwise two servers compete for the same files. Disable the other with `/plugin`, or:
 
 ```bash
 claude plugin disable clangd-lsp@claude-plugins-official
