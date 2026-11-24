@@ -6,8 +6,8 @@
     "name": "Arrush",
     "url": "https://github.com/ArrushC"
   },
-  "homepage": "https://github.com/ArrushC/clice-lsp#readme",
-  "repository": "https://github.com/ArrushC/clice-lsp",
+  "homepage": "https://github.com/ArrushC/claude-clice-lsp#readme",
+  "repository": "https://github.com/ArrushC/claude-clice-lsp",
   "license": "MIT",
   "keywords": [
     "lsp",

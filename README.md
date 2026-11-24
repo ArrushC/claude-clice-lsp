@@ -86,8 +86,8 @@ claude plugin disable clangd-lsp@claude-plugins-official
 ## Install the plugin
 
 ```
-/plugin marketplace add ArrushC/clice-lsp
-/plugin install clice-lsp@clice-lsp
+/plugin marketplace add ArrushC/claude-clice-lsp
+/plugin install clice-lsp@claude-clice-lsp
 ```
 
 ## Test locally

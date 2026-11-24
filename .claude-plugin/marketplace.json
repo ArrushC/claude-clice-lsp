@@ -1,5 +1,5 @@
 {
-  "name": "clice-lsp",
+  "name": "claude-clice-lsp",
   "description": "clice C/C++ language server plugin for Claude Code",
   "owner": {
     "name": "Arrush",
